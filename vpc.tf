@@ -1,4 +1,5 @@
 # VPC Creation using CIDR block available in vars.tf
+# VPC Creation using CIDR block available in vars.tf change we need
 
 resource "aws_vpc" "provisionerVPC"{
     cidr_block = var.vpc_cidr
