@@ -12,7 +12,7 @@ terraform {
 #Provider profile and region in which all the resources will create
 provider "aws" {
   profile = "default"
-  region  = "us-west-2"
+  region  = "eu-central-1"
 }
 
 #Resource to create s3 bucket
