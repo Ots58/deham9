@@ -9,6 +9,4 @@ resource "aws_vpc" "provisionerVPC"{
         Name = "dev-terraform-vpc"
     }
 }
-variable "vpc_cidr"{
-    default = "10.0.1.0/24"
-}
+
