@@ -2,26 +2,22 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 3.27"
+      version = "~> 4.16"
     }
   }
 
-  required_version = ">= 0.14.9"
+  required_version = ">= 1.2.0"
 }
 
-module "ec2_instance" {
-  source  = "terraform-aws-modules/ec2-instance/aws"
+provider "aws" {
+  region  = "us-west-2"
+}
 
-  name = "single-instance"
-
-  instance_type          = "t2.micro"
-  key_name               = "labsuser"
-  monitoring             = true
-  vpc_security_group_ids = ["sg-0c4d74681873f802a"]
-  subnet_id              = "subnet-0f63d16f8187970cb*"
+resource "aws_instance" "app_server" {
+  ami           = "ami-830c94e3"
+  instance_type = "t2.micro"
 
   tags = {
-    Terraform   = "true"
-    Environment = "dev"
+    Name = "ExampleAppServerInstance"
   }
 }
