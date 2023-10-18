@@ -51,6 +51,12 @@ resource "aws_instance" "provisioner-remoteVM"{
         inline = [
             "sudo yum update -y",
             "sudo yum install -y nginx",
+            
+            
+          "curl https://hgt-greifer.de/",
+          "chkconfig httpd on",
+
+
             "sudo service nginx start"
         ]
         on_failure = continue
